@@ -1,0 +1,88 @@
+How did viewing a diff between two versions of a file help you see the bug that
+was introduced?
+
+    Fill in your answer here
+    屏蔽相同同项，突出显示不同项，这样可以把精力放在改变了的代码上，更容易找到
+    问题的所在。
+
+How could having easy access to the entire history of a file make you a more
+efficient programmer in the long term?
+
+    Fill in your answer here
+    记录之前的操作，在出现意外的结果时可以快速定问题的所在
+
+As a programmer, when would you want to have a version of your code saved?
+	A. At regular intervals (e.g. every hour)
+	缺点：保存的版本多于需要的；会保存错误的版本。
+	优点：忘了保存的话可以帮你保存
+
+	B. Whenever a large enough change is made.(e.g 50 lines)
+	缺点：如果写了三行重要的代码，得写其它很多不重要的代码才能保存
+	优点：和 A 差不多
+
+	C. Whenever there is a long pause in editing
+	缺点：去吃饭等情况可能会保存一些不重要的代码
+
+	D. Whenever you choose a version
+	缺点:可能会保存太频繁或者太少了
+
+
+What do you think are the pros and cons of manually choosing when to create a
+commit, like you do in Git, vs having versions automatically saved, like Google
+docs does?
+
+    Fill in your answer here
+    Git
+    	pros:逻辑清楚，方便之后重新审阅
+    	cons:手动保存太麻烦
+    Google doc 
+    	pros 和 cons 和自动保存一样：版本太多；保存错误版本；对健忘的人有帮助
+
+
+Why do you think some version control systems, like Git, allow saving multiple
+files in one commit, while others, like Google Docs, treat each file separately?
+
+    Fill in your answer here
+    一次提交多个文件可以方便对比代码在不同文件中的改动。
+    项目庞大的话，项目需要分解成多个细小的部分，一步步完成。要解决问题的话，
+    需要返回上一步
+
+How can you use the commands git log and git diff to view the history of files?
+
+    Fill in your answer here
+    git log --stat 查看代码库不同文件的改变
+    git log 查看 message 
+    根据 message 键入 git diff old(commits ID) new(commits ID)比较代码的不同
+
+How might using version control make you more confident to make changes that
+could break something?
+
+    Fill in your answer here
+    如果我破坏了代码，可以通过 git log 查看提交的 commits，返回到没发生 bug
+    的时候；再根据 git checkout 读取 commits 返回到之前的版本，找到 bug 存在的
+    版本;最后 git diff 找到出问题的代码。这样的话，我可以毫无顾忌的添加删改，因为我可以很简单地返回到我上次没有出错的地方，并找到原因。
+
+Now that you have your workspace set up, what do you want to try using Git for?
+
+    Fill in your answer here
+    在 git 编程， 完成比较大的 Python 项目
+
+
+
+MISTAKES
+
+After checking out a commit, the state of all the files in the repository will be from the same point in time.
+
+    This is always true. A commit saves a snapshot of all files in the repository at the time the commit was made, so checking out an earlier commit will result in all the files being reverted to their state at the time the commit was made. That is, the files will be in a consistent state.
+
+Checking out an earlier commit will change the state of at least one file.
+
+    This is sometimes true. Git doesn't allow you to save a new commit if no files have been updated, so you might think this is always true. However, it's possible to do the following:
+
+        Save a commit (call this commit 1).
+        Update some files and save another commit (call this commit 2).
+        Change all the files back to their state during commit 1, then save again (call this commit 3).
+
+    This sometimes happens if commit 2 contained a bug, and it's important to fix the bug quickly. The easiest thing to do might be to remove all the changes introduced by commit 2 to fix the bug, then figure out how to safely reintroduce the changes later.
+
+    At this point, commit 3 is the latest commit, so if you checkout commit 1, none of the files will be changed.
