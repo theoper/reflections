@@ -11,3 +11,7 @@ When would you want to creat a remote respository rather than keeping all your w
 	Fork：从 github 服务器上的一个 respository 到自己的 respository
 	clone: 从GitHub复制到本地
 	分支：respository 版本迭代
+
+拥有远程分支的上次已知状态的副本（存储在本地）有何好处？
+	
+	可以了解上次的操作，自己能够参考，修改。
