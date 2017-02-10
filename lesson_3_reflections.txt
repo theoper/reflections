@@ -19,3 +19,9 @@ When would you want to creat a remote respository rather than keeping all your w
 如何在不使用 Git 或 GitHub 的情况下开展协同？哪种做法更容易？哪种做法更困难？
 
 	每做完一些任务，开会交流，时间开销太大；git 更容易。
+
+何时你会想在独立的分支中而不是直接在 master 中进行更改？两种方法各有何好处？
+
+	开发新功能，与人合作时想开一个分支。
+	直接在 master 中修改可以避免合并的麻烦。
+	独立分支可以避免影响 master.
