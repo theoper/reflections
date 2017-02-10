@@ -1,0 +1,2 @@
+When would you want to creat a remote respository rather than keeping all your work local?
+    和别人合作分享项目；备份；多终端操作
