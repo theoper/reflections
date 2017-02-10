@@ -1,2 +1,13 @@
 When would you want to creat a remote respository rather than keeping all your work local?
+    
     和别人合作分享项目；备份；多终端操作
+
+为何你希望始终手动地拉取更改，而不是让 Git 自动与你的远程版本库保持同步？
+	
+	我可能在远程上修改，也可能在本地修改；按照逻辑一步步提交更方便，
+
+说明Fork、克隆和分支之间的不同。何时使用某种功能而不是另一种？
+
+	Fork：从 github 服务器上的一个 respository 到自己的 respository
+	clone: 从GitHub复制到本地
+	分支：respository 版本迭代

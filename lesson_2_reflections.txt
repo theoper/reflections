@@ -5,17 +5,47 @@ What happens when you initialize a repository? Why do you need to do it?
 
 How is the staging area different from the working directory and the repository?
 What value do you think it offers?
+	
+	staging area 连接 working directory 和 repository，作为缓冲。
+	可以方便提交，添加多个文件代码，修改。
 
 How can you use the staging area to make sure you have one commit per logical
 change?
 
+	1. git add: 从 working directory 中向 staging area 提交文件
+	2. git commit: 从 staging area 向 repository 中提交文件
+	3. 如果在添加到 staging area后，在 working directory 中修改文件，可使用 
+	git diff 来查看修改的内容；使用 git reset --hard 可以撤销在 working directory
+	中修改的内容
+	4. 在提交 commits 之前使用 git diff --staged 来比较 staging area 和 repository
+	的内容，确认是否提交。
+	5. git commit 调用 sublime 添加 commit 说明。
+
 What are some situations when branches would be helpful in keeping your history
 organized? How would branches help?
+	
+	添加测试一些新的功能；重构代码；测试一些不确定的代码。
+	处理新的任务，新的内容，纠正 bug.
+	分支可以在不影响已经完成的代码时，另外开分支并且还可以随时返回主干来对比测试。
+	分支可以使项目保持条理性，主分支始终运转，开发分支进行项目开发；还有实验分支，
+	添加新功能分支，这些不稳定的分支。
+	分支有助于和别人，自己合作。
 
 How do the diagrams help you visualize the branch structure?
+	
+	很清楚的表示出了父 commit 和 commit 之间的联结关系
 
 What is the result of merging two branches together? Why do we represent it in
 the diagram the way we do?
 
+	两个分支合到一起会形成一个具有两个分支特性的版本。
+	因为合并之后有多个父 commit.
+
 What are the pros and cons of Git’s automatic merging vs. always doing merges
 manually?
+	Automatic merging 
+		pros: 可以快速的合并没有冲突的代码，节约时间
+		cons: 无法解决存在冲突的代码，需要人为调试
+	Merges manually:
+		pros: 对每个代码的细节都了解，讨论后不会产生冲突
+		cons: 很繁琐，时间开销太大
